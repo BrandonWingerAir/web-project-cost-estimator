@@ -112,26 +112,10 @@ $(document).ready(function(){
     computeResults();
   }).change();
 
-  // Handle Payment Plan
-  $('#payment-plan').change(function() {
-    $(this).find('option:selected').each(function() {
-      if ($(this).attr("value") == 'one-payment') {
-        paymentType = 'one-payment';
-        paymentTypeText = '.00'
-      } else if ($(this).attr("value") == 'monthly') {
-        paymentType = 'monthly';
-        paymentTypeText = '/m'
-      } else if ($(this).attr("value") == 'weekly') {
-        paymentType = 'weekly';
-        paymentTypeText = '/wk'
-      } else {
-        paymentType = 'daily';
-        paymentTypeText = '/day'
-      }
-    });
-
-    computeResults();
-  }).change();
+  // Check for click on "additional features" dropdown
+  $(".dropdown-trigger").click(function() {
+    $(".dropdown").toggleClass("is-active");
+  });
 
   // Handle Features Checklist
   $('#graphic-design').change(function() {
@@ -240,7 +224,28 @@ $(document).ready(function(){
     }
   });
 
-  // Calculate Estimate 
+  // Handle Payment Plan
+  $('#payment-plan').change(function() {
+    $(this).find('option:selected').each(function() {
+      if ($(this).attr("value") == 'one-payment') {
+        paymentType = 'one-payment';
+        paymentTypeText = '.00'
+      } else if ($(this).attr("value") == 'monthly') {
+        paymentType = 'monthly';
+        paymentTypeText = '/m'
+      } else if ($(this).attr("value") == 'weekly') {
+        paymentType = 'weekly';
+        paymentTypeText = '/wk'
+      } else {
+        paymentType = 'daily';
+        paymentTypeText = '/day'
+      }
+    });
+
+    computeResults();
+  }).change();
+
+  // Estimate Calculation
   function computeResults() {
     if (projectType == 'basic-website') {
       projectTotal = 1200;
@@ -258,7 +263,7 @@ $(document).ready(function(){
       totalDays = typeDays + featureDays + pageDays;
     }
 
-    // Handle Payment Plan
+    // Payments Calculation
     if (paymentType == 'one-payment') {
       paymentTotal = totalAmount;
       document.getElementById('payment-title').innerHTML = 'One Payment';
