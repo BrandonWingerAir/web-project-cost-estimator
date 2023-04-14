@@ -119,9 +119,7 @@ body {
   color: #616161;
 }
 
-#graphic-design-include,
-#prototyping-include,
-#administration-include {
+.add-on {
   display: none;
 }
 
