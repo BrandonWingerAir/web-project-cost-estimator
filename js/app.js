@@ -165,14 +165,14 @@ $(document).ready(function(){
   $('#advanced-seo').change(function() {
     if (this.checked) {
       $('#advanced-seo-include').fadeIn('slow');
-      featuresTotal += 5000;
-      recurringTotal += 5000;
+      featuresTotal += 6000;
+      recurringTotal += 6000;
       featureDays += 4;
       computeResults();
     } else {
       $('#advanced-seo-include').fadeOut('slow');
-      featuresTotal -= 5000;
-      recurringTotal -= 5000;
+      featuresTotal -= 6000;
+      recurringTotal -= 6000;
       featureDays -= 4;
       computeResults();
     }
