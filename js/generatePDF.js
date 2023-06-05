@@ -72,16 +72,18 @@ function generatePDF() {
   doc.text(62, 90, durationAmount);
 
   // Project Features  
-  var featuresList = document.getElementById('features-list');
-  var featuresCheck = featuresList.getElementsByTagName('input');
-
-  if (featuresCheck.length > 0) {
-    doc.setFontType('bold');
-    doc.text(20, 90 + lineMargin, 'Features:');
-  }
-
+  var featuresCheck = document.getElementById('features-list').getElementsByTagName('input');
+  var hasFeaturesTitle = false;
+  
   for (var i = 0; i < featuresCheck.length; i++) {
     if (featuresCheck[i].checked) {
+      if (!hasFeaturesTitle) {
+        doc.setFontType('bold');
+        doc.text(20, 90 + lineMargin, 'Features:');
+
+        hasFeaturesTitle = true;
+      }
+
       hasFeatureMargin = 10;
       featuresMargin += 1;
 
@@ -149,14 +151,14 @@ function generatePDF() {
     lineTop = (lineHeight/2) * i;
 
     doc.setFontSize(15);
-    doc.text(lines[i], pageCenter, 262 + lineTop + featuresMargin * 10 + hasFeatureMargin + lineMargin + paymentLineMargin + recurringLineMargin, 'center');
+    doc.text(lines[i], pageCenter, 278, 'center');
 
     let textWidth = doc.getTextWidth(totalTitle);
 
-    doc.line(pageCenter - textWidth / 2, 266 + lineTop + featuresMargin * 10 + hasFeatureMargin + lineMargin + paymentLineMargin + recurringLineMargin, pageCenter + textWidth / 2 + 2, 266 + lineTop + featuresMargin * 10 + hasFeatureMargin + lineMargin + paymentLineMargin + recurringLineMargin, 'center');
+    doc.line(pageCenter - textWidth / 2, 282, pageCenter + textWidth / 2 + 2, 282, 'center');
   }
 
-  doc.text('www.brandonwinger-air.com', pageCenter, 273 + lineTop + featuresMargin * 10 + hasFeatureMargin + lineMargin + paymentLineMargin + recurringLineMargin, 'center');
+  doc.text('www.brandonwinger-air.com', pageCenter, 289, 'center');
 
   // Save the file
   doc.save('project-estimate-by-brandon-winger-air.pdf');
