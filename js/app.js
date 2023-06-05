@@ -167,13 +167,13 @@ $(document).ready(function(){
       $('#advanced-seo-include').fadeIn('slow');
       featuresTotal += 6000;
       recurringTotal += 6000;
-      featureDays += 4;
+      featureDays += 21;
       computeResults();
     } else {
       $('#advanced-seo-include').fadeOut('slow');
       featuresTotal -= 6000;
       recurringTotal -= 6000;
-      featureDays -= 4;
+      featureDays -= 21;
       computeResults();
     }
   });
@@ -182,12 +182,12 @@ $(document).ready(function(){
     if (this.checked) {
       $('#custom-database-include').fadeIn('slow');
       featuresTotal += 2000;
-      featureDays += 4;
+      featureDays += 10;
       computeResults();
     } else {
       $('#custom-database-include').fadeOut('slow');
       featuresTotal -= 2000;
-      featureDays -= 4;
+      featureDays -= 10;
       computeResults();
     }
   });
@@ -197,13 +197,13 @@ $(document).ready(function(){
       $('#security-testing-include').fadeIn('slow');
       featuresTotal += 4500;
       recurringTotal += 4500;
-      featureDays += 4;
+      featureDays += 30;
       computeResults();
     } else {
       $('#security-testing-include').fadeOut('slow');
       featuresTotal -= 4500;
       recurringTotal -= 4500;
-      featureDays -= 4;
+      featureDays -= 30;
       computeResults();
     }
   });
@@ -213,13 +213,13 @@ $(document).ready(function(){
       $('#media-marketing-include').fadeIn('slow');
       featuresTotal += 3000;
       recurringTotal += 3000;
-      featureDays += 4;
+      featureDays += 14;
       computeResults();
     } else {
       $('#media-marketing-include').fadeOut('slow');
       featuresTotal -= 3000;
       recurringTotal -= 3000;
-      featureDays -= 4;
+      featureDays -= 14;
       computeResults();
     }
   });
