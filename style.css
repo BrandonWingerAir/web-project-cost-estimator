@@ -196,6 +196,11 @@ p.number {
   font-size: 17px;
 }
 
+#footer-section a {
+  text-decoration: none;
+  color: #616161;
+}
+
 #results-added {
   margin-top: 12px;
   text-align: center;
