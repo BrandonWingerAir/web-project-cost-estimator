@@ -361,6 +361,7 @@ $(document).ready(function(){
     }
   }
 
+  // Generate Email Message
   var projectTypeSelect = document.getElementById('project-select');
   var projectSelected = projectTypeSelect.options[projectTypeSelect.selectedIndex].text;
 
@@ -396,7 +397,6 @@ $(document).ready(function(){
       }
       
       featuresList += featuresCheck[i].value + '%0D%0A'
-      console.log(featuresList);
     }
   }
 
@@ -405,8 +405,6 @@ $(document).ready(function(){
 
   // Mail Content
   var mailToLink = emailInfo + emailIntro + emailProject + emailPages + emailDuration + featuresTitle + featuresList + emailFooter;
-
-  console.log(mailToLink);
 
   var quoteLink = document.getElementById('request-quote-link');
   quoteLink.href = mailToLink;
