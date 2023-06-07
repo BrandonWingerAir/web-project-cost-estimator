@@ -380,9 +380,33 @@ $(document).ready(function(){
   }
 
   var emailDuration = 'Estimated%20Duration:%20'+ durationAmount + '%0D%0A';
+
+  // Features List
+  var featuresCheck = document.getElementById('features-list').getElementsByTagName('input');
+
+  var hasFeaturesTitle = false;
+  var featuresTitle = '';
+  var featuresList = '';
+  
+  for (var i = 0; i < featuresCheck.length; i++) {
+    if (featuresCheck[i].checked) {
+      if (!hasFeaturesTitle) {
+        featuresTitle = '%0D%0A' + 'Additional%20Features:' + '%0D%0A';
+        hasFeaturesTitle = true;
+      }
+      
+      featuresList += featuresCheck[i].value + '%0D%0A'
+      console.log(featuresList);
+    }
+  }
+
+  // Footer Text
   var emailFooter = '%0D%0ASent%20using%20the%20web%20client%20estimator.%0D%0A';
 
-  var mailToLink = emailInfo + emailIntro + emailProject + emailPages + emailDuration + emailFooter;
+  // Mail Content
+  var mailToLink = emailInfo + emailIntro + emailProject + emailPages + emailDuration + featuresTitle + featuresList + emailFooter;
+
+  console.log(mailToLink);
 
   var quoteLink = document.getElementById('request-quote-link');
   quoteLink.href = mailToLink;
