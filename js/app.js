@@ -117,16 +117,25 @@ $(document).ready(function(){
     $(".dropdown").toggleClass("is-active");
   });
 
+  // Feature Amounts ($)
+  const incGraphicDesign = 850;
+  const incAdministration = 480;
+  const incPrototyping = 2500;
+  const incAdvancedSEO = 6000;
+  const incCustomDatabase = 2000;
+  const incSecurityTesting = 4500;
+  const incMediaMarketing = 3000;
+
   // Handle Features Checklist
   $('#graphic-design').change(function() {
     if (this.checked) {
       $('#graphic-design-include').fadeIn('slow');
-      featuresTotal += 850;
+      featuresTotal += incGraphicDesign;
       featureDays += 5;
       computeResults();
     } else {
       $('#graphic-design-include').fadeOut('slow');
-      featuresTotal -= 850;
+      featuresTotal -= incGraphicDesign;
       featureDays -= 5;
       computeResults();
     }
@@ -135,14 +144,14 @@ $(document).ready(function(){
   $('#administration').change(function() {
     if (this.checked) {
       $('#administration-include').fadeIn('slow');
-      featuresTotal += 480;
-      recurringTotal += 480;
+      featuresTotal += incAdministration;
+      recurringTotal += incAdministration;
       featureDays += 4;
       computeResults();
     } else {
       $('#administration-include').fadeOut('slow');
-      featuresTotal -= 480;
-      recurringTotal -= 480;
+      featuresTotal -= incAdministration;
+      recurringTotal -= incAdministration;
       featureDays -= 4;
       computeResults();
     }
@@ -151,12 +160,12 @@ $(document).ready(function(){
   $('#prototyping').change(function() {
     if (this.checked) {
       $('#prototyping-include').fadeIn('slow');
-      featuresTotal += 2500;
+      featuresTotal += incPrototyping;
       featureDays += 7;
       computeResults();
     } else {
       $('#prototyping-include').fadeOut('slow');
-      featuresTotal -= 2500;
+      featuresTotal -= incPrototyping;
       featureDays -= 7;
       computeResults();
     }
@@ -165,14 +174,14 @@ $(document).ready(function(){
   $('#advanced-seo').change(function() {
     if (this.checked) {
       $('#advanced-seo-include').fadeIn('slow');
-      featuresTotal += 6000;
-      recurringTotal += 6000;
+      featuresTotal += incAdvancedSEO;
+      recurringTotal += incAdvancedSEO;
       featureDays += 21;
       computeResults();
     } else {
       $('#advanced-seo-include').fadeOut('slow');
-      featuresTotal -= 6000;
-      recurringTotal -= 6000;
+      featuresTotal -= incAdvancedSEO;
+      recurringTotal -= incAdvancedSEO;
       featureDays -= 21;
       computeResults();
     }
@@ -181,12 +190,12 @@ $(document).ready(function(){
   $('#custom-database').change(function() {
     if (this.checked) {
       $('#custom-database-include').fadeIn('slow');
-      featuresTotal += 2000;
+      featuresTotal += incCustomDatabase;
       featureDays += 10;
       computeResults();
     } else {
       $('#custom-database-include').fadeOut('slow');
-      featuresTotal -= 2000;
+      featuresTotal -= incCustomDatabase;
       featureDays -= 10;
       computeResults();
     }
@@ -195,14 +204,14 @@ $(document).ready(function(){
   $('#security-testing').change(function() {
     if (this.checked) {
       $('#security-testing-include').fadeIn('slow');
-      featuresTotal += 4500;
-      recurringTotal += 4500;
+      featuresTotal += incSecurityTesting;
+      recurringTotal += incSecurityTesting;
       featureDays += 30;
       computeResults();
     } else {
       $('#security-testing-include').fadeOut('slow');
-      featuresTotal -= 4500;
-      recurringTotal -= 4500;
+      featuresTotal -= incSecurityTesting;
+      recurringTotal -= incSecurityTesting;
       featureDays -= 30;
       computeResults();
     }
@@ -211,14 +220,14 @@ $(document).ready(function(){
   $('#media-marketing').change(function() {
     if (this.checked) {
       $('#media-marketing-include').fadeIn('slow');
-      featuresTotal += 3000;
-      recurringTotal += 3000;
+      featuresTotal += incMediaMarketing;
+      recurringTotal += incMediaMarketing;
       featureDays += 14;
       computeResults();
     } else {
       $('#media-marketing-include').fadeOut('slow');
-      featuresTotal -= 3000;
-      recurringTotal -= 3000;
+      featuresTotal -= incMediaMarketing;
+      recurringTotal -= incMediaMarketing;
       featureDays -= 14;
       computeResults();
     }
