@@ -141,6 +141,7 @@ function generatePDF() {
   }
 
   // More Information
+  doc.setFontSize(13);
   var totalTitle = 'brandon.air.web@gmail.com';
 
   var lines = doc.splitTextToSize(totalTitle, (pdfInMM - lMargin - rMargin));
@@ -148,9 +149,8 @@ function generatePDF() {
   var lineHeight = dim.h;
 
   for (var i=0;i<lines.length;i++){
-    lineTop = (lineHeight/2) * i;
+    lineTop = (lineHeight / 2) * i;
 
-    doc.setFontSize(15);
     doc.text(lines[i], pageCenter, 278, 'center');
 
     let textWidth = doc.getTextWidth(totalTitle);
