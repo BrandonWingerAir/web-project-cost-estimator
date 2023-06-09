@@ -83,39 +83,60 @@ $(document).ready(function(){
   // Handle Project Type
   $('#project-type').change(function() {
     $(this).find('option:selected').each(function() {
-      if ($(this).attr("value") == 'basic-website') {
-        projectType = 'basic-website';
-        $('#pages-value').val(3);
-        updatePageCount();
-        typeDays = 5;
-        $('#additional-pages').html(3);
-        $('#additional-page-price').html(50);
-        $('#pages-form').fadeIn('slow');
-        $('#included-pages').fadeIn('slow');
-      } else if ($(this).attr("value") == 'landing-page') {
-        projectType = 'landing-page';
-        $('#pages-value').val(1);
-        $('#pages-form').fadeOut('slow');
-        typeDays = 3;
-        $('#included-pages').fadeOut('slow');
-      } else if ($(this).attr("value") == 'content-ecommerce') {
-        projectType = 'content-ecommerce';
-        $('#pages-value').val(10);
-        updatePageCount();
-        typeDays = 21;
-        $('#additional-pages').html(10);
-        $('#additional-page-price').html(200);
-        $('#pages-form').fadeIn('slow');
-        $('#included-pages').fadeIn('slow');
-      } else {
-        projectType = 'web-application';
-        $('#pages-value').val(5);
-        updatePageCount();
-        typeDays = 35;
-        $('#additional-pages').html(5);
-        $('#additional-page-price').html(800);
-        $('#pages-form').fadeIn('slow');
-        $('#included-pages').fadeIn('slow');
+      switch($(this).attr("value")) {
+        case 'basic-website':
+          projectType = 'basic-website';
+          typeDays = 5;
+
+          $('#pages-value').val(3);
+          updatePageCount();
+
+          $('#additional-pages').html(3);
+          $('#additional-page-price').html(50);
+
+          $('#pages-form').fadeIn('slow');
+          $('#included-pages').fadeIn('slow');
+
+          break;
+  
+        case 'landing-page':
+          projectType = 'landing-page';
+          typeDays = 3;
+
+          $('#pages-value').val(1);
+
+          $('#pages-form').fadeOut('slow');
+          $('#included-pages').fadeOut('slow');  
+
+          break;
+  
+        case 'content-ecommerce':
+          projectType = 'content-ecommerce';
+          typeDays = 21;
+
+          $('#pages-value').val(10);
+          updatePageCount();
+
+          $('#additional-pages').html(10);
+          $('#additional-page-price').html(200);
+
+          $('#pages-form').fadeIn('slow');
+          $('#included-pages').fadeIn('slow');  
+
+          break;
+  
+        case 'web-application':
+          projectType = 'web-application';
+          typeDays = 35;
+
+          $('#pages-value').val(5);
+          updatePageCount();
+
+          $('#additional-pages').html(5);
+          $('#additional-page-price').html(800);
+
+          $('#pages-form').fadeIn('slow');
+          $('#included-pages').fadeIn('slow');  
       }
     });
 
@@ -185,166 +206,166 @@ $(document).ready(function(){
   });
 
   // Feature Amounts (In Dollars: $)
-  const incGraphicDesign = 850;
-  const incAdministration = 480;
-  const incPrototyping = 2500;
-  const incAdvancedSEO = 6000;
-  const incCustomDatabase = 2000;
-  const incSecurityTesting = 4500;
-  const incMediaMarketing = 3000;
+  const costGraphicDesign = 850;
+  const costAdministration = 480;
+  const costPrototyping = 2500;
+  const costAdvancedSEO = 6000;
+  const costCustomDatabase = 2000;
+  const costSecurityTesting = 4500;
+  const costMediaMarketing = 3000;
 
   // Handle Features Checklist
   $('#graphic-design').change(function() {
     if (this.checked) {
       $('#graphic-design-include').fadeIn('slow');
-      featuresTotal += incGraphicDesign;
+      featuresTotal += costGraphicDesign;
       featureDays += 5;
       computeResults();
     } else {
       $('#graphic-design-include').fadeOut('slow');
-      featuresTotal -= incGraphicDesign;
+      featuresTotal -= costGraphicDesign;
       featureDays -= 5;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
 
   $('#administration').change(function() {
     if (this.checked) {
       $('#administration-include').fadeIn('slow');
-      featuresTotal += incAdministration;
-      recurringTotal += incAdministration;
+      featuresTotal += costAdministration;
+      recurringTotal += costAdministration;
       featureDays += 4;
       computeResults();
     } else {
       $('#administration-include').fadeOut('slow');
-      featuresTotal -= incAdministration;
-      recurringTotal -= incAdministration;
+      featuresTotal -= costAdministration;
+      recurringTotal -= costAdministration;
       featureDays -= 4;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
   
   $('#prototyping').change(function() {
     if (this.checked) {
       $('#prototyping-include').fadeIn('slow');
-      featuresTotal += incPrototyping;
+      featuresTotal += costPrototyping;
       featureDays += 7;
       computeResults();
     } else {
       $('#prototyping-include').fadeOut('slow');
-      featuresTotal -= incPrototyping;
+      featuresTotal -= costPrototyping;
       featureDays -= 7;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
 
   $('#advanced-seo').change(function() {
     if (this.checked) {
       $('#advanced-seo-include').fadeIn('slow');
-      featuresTotal += incAdvancedSEO;
-      recurringTotal += incAdvancedSEO;
+      featuresTotal += costAdvancedSEO;
+      recurringTotal += costAdvancedSEO;
       featureDays += 21;
       computeResults();
     } else {
       $('#advanced-seo-include').fadeOut('slow');
-      featuresTotal -= incAdvancedSEO;
-      recurringTotal -= incAdvancedSEO;
+      featuresTotal -= costAdvancedSEO;
+      recurringTotal -= costAdvancedSEO;
       featureDays -= 21;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
 
   $('#custom-database').change(function() {
     if (this.checked) {
       $('#custom-database-include').fadeIn('slow');
-      featuresTotal += incCustomDatabase;
+      featuresTotal += costCustomDatabase;
       featureDays += 10;
       computeResults();
     } else {
       $('#custom-database-include').fadeOut('slow');
-      featuresTotal -= incCustomDatabase;
+      featuresTotal -= costCustomDatabase;
       featureDays -= 10;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
 
   $('#security-testing').change(function() {
     if (this.checked) {
       $('#security-testing-include').fadeIn('slow');
-      featuresTotal += incSecurityTesting;
-      recurringTotal += incSecurityTesting;
+      featuresTotal += costSecurityTesting;
+      recurringTotal += costSecurityTesting;
       featureDays += 30;
       computeResults();
     } else {
       $('#security-testing-include').fadeOut('slow');
-      featuresTotal -= incSecurityTesting;
-      recurringTotal -= incSecurityTesting;
+      featuresTotal -= costSecurityTesting;
+      recurringTotal -= costSecurityTesting;
       featureDays -= 30;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
 
   $('#media-marketing').change(function() {
     if (this.checked) {
       $('#media-marketing-include').fadeIn('slow');
-      featuresTotal += incMediaMarketing;
-      recurringTotal += incMediaMarketing;
+      featuresTotal += costMediaMarketing;
+      recurringTotal += costMediaMarketing;
       featureDays += 14;
       computeResults();
     } else {
       $('#media-marketing-include').fadeOut('slow');
-      featuresTotal -= incMediaMarketing;
-      recurringTotal -= incMediaMarketing;
+      featuresTotal -= costMediaMarketing;
+      recurringTotal -= costMediaMarketing;
       featureDays -= 14;
       computeResults();
     }
-
-    updateFeaturesEmail();
   });
 
   // Handle Payment Plan
   $('#payment-plan').change(function() {
     $(this).find('option:selected').each(function() {
-      if ($(this).attr("value") == 'one-payment') {
-        paymentType = 'one-payment';
-        paymentTypeText = '.00'
-      } else if ($(this).attr("value") == 'monthly') {
-        paymentType = 'monthly';
-        paymentTypeText = '/m'
-      } else if ($(this).attr("value") == 'weekly') {
-        paymentType = 'weekly';
-        paymentTypeText = '/wk'
-      } else {
-        paymentType = 'daily';
-        paymentTypeText = '/day'
+      switch($(this).attr("value")) {
+        case 'one-payment':
+          paymentType = 'one-payment';
+          paymentTypeText = '.00';
+          break;
+
+        case 'monthly':
+          paymentType = 'monthly';
+          paymentTypeText = '/m'
+          break;
+
+        case 'weekly':
+          paymentType = 'weekly';
+          paymentTypeText = '/wk'
+          break;
+
+        case 'daily':
+          paymentType = 'daily';
+          paymentTypeText = '/day'
       }
     });
 
     computeResults();
   }).change();
 
-  // Estimate Calculation
+  // Calculate Estimate
   function computeResults() {
-    if (projectType == 'basic-website') {
-      projectTotal = 1200;
-    } else if (projectType == 'landing-page') {
-      projectTotal = 750;
-    } else if (projectType == 'content-ecommerce') {
-      projectTotal = 3000;
-    } else {
-      projectTotal = 7500;
+    switch(projectType) {
+      case 'basic-website':
+        projectTotal = 1200;
+        break;
+
+      case 'landing-page':
+        projectTotal = 750;
+        break;
+
+      case 'content-ecommerce':
+        projectTotal = 3000;
+        break;
+
+      case 'web-application':
+        projectTotal = 7500;
     }
 
     totalAmount = projectTotal + pagesTotal + featuresTotal;
@@ -441,6 +462,7 @@ $(document).ready(function(){
       document.getElementById('duration-amount').innerHTML = totalDays + ' Days';
     }
 
+    // Update Email Message
     setMailContent();
   }
 });
