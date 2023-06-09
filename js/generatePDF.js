@@ -150,11 +150,8 @@ function generatePDF() {
 
   for (var i=0;i<lines.length;i++){
     lineTop = (lineHeight / 2) * i;
-
     doc.text(lines[i], pageCenter, 278, 'center');
-
     let textWidth = doc.getTextWidth(totalTitle);
-
     doc.line(pageCenter - textWidth / 2, 282, pageCenter + textWidth / 2 + 2, 282, 'center');
   }
 

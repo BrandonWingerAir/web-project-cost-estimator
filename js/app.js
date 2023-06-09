@@ -15,33 +15,35 @@ $(document).ready(function(){
 
   // Generate Email Message
   function setMailContent() {
-    var projectTypeSelect = document.getElementById('project-select');
-    var projectSelected = projectTypeSelect.options[projectTypeSelect.selectedIndex].text;
+    let projectTypeSelect = document.getElementById('project-select');
+    let projectSelected = projectTypeSelect.options[projectTypeSelect.selectedIndex].text;
 
-    var pagesValue = document.getElementById('pages-value').value;
-
-    var durationText = document.getElementById('duration-amount');
-    var durationAmount = durationText.textContent;
-
-    var emailInfo = 'mailto:brandon.air.web@gmail.com?subject=Project%20Estimate&body=';
-    var emailIntro = 'Hi,%20the%20project%20details%20are%20below.%0D%0A';
-    var emailProject = '%0D%0AProject%20Type:%20'+ projectSelected + '%0D%0A';
-
+    let pagesValue = document.getElementById('pages-value').value;
+    
+    let durationText = document.getElementById('duration-amount');
+    let durationAmount = durationText.textContent;
+    
+    let emailInfo = 'mailto:brandon.air.web@gmail.com?subject=Project%20Estimate&body=';
+    let emailIntro = 'Hi,%20the%20project%20details%20are%20below.%0D%0A';
+    
+    let emailProject = '%0D%0AProject%20Type:%20'+ projectSelected + '%0D%0A';
+    let emailPages = '';
+    
     if (pagesValue > 1) {
-      var emailPages = 'Number%20Of%20Pages:%20'+ pagesValue + '%0D%0A';
+      emailPages = 'Number%20Of%20Pages:%20'+ pagesValue + '%0D%0A';
     } else {
-      var emailPages = '';
+      emailPages = '';
     }
 
-    var emailDuration = 'Estimated%20Duration:%20'+ durationAmount + '%0D%0A';
+    let emailDuration = 'Estimated%20Duration:%20'+ durationAmount + '%0D%0A';
 
     // Features List
     let featuresTitle = '';
     let featuresList = '';
     let recurringEstimate = '';
 
-    var featuresCheck = document.getElementById('features-list').getElementsByTagName('input');
-    var hasFeaturesTitle = false;
+    let featuresCheck = document.getElementById('features-list').getElementsByTagName('input');
+    let hasFeaturesTitle = false;
       
     for (var i = 0; i < featuresCheck.length; i++) {
       if (featuresCheck[i].checked) {
@@ -61,15 +63,15 @@ $(document).ready(function(){
 
     
     // Total Estimate
-    var totalEstimate = '%0D%0A' + 'Estimated%20Total:'+ '%20$' + totalAmount + '%0D%0A';
+    let totalEstimate = '%0D%0A' + 'Estimated%20Total:'+ '%20$' + totalAmount + '%0D%0A';
     
     // Footer Text
-    var emailFooter = '%0D%0A' + 'Sent%20using%20the%20web%20client%20estimator | www.brandonwinger-air.com' + '%0D%0A';
+    let emailFooter = '%0D%0A' + 'Sent%20using%20the%20web%20client%20estimator | www.brandonwinger-air.com' + '%0D%0A';
 
     // Update Content
-    var quoteLink = document.getElementById('request-quote-link');
+    let quoteLink = document.getElementById('request-quote-link');
 
-    var mailToLink;
+    let mailToLink;
     
     if (featuresList !== '') {
       mailToLink = emailInfo + emailIntro + emailProject + emailPages + emailDuration + featuresTitle + featuresList + totalEstimate + recurringEstimate + emailFooter;
